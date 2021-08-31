@@ -19,16 +19,35 @@
 				{
 					"name": "comment.block",
 					"begin": "/\\*",
-					"end": "\\*/",
-					"contentName": "comment.block"
+					"end": "\\*/"
 				},
 				{
 					"name": "keyword.control.structure.rsl",
-					"match": "\\b(scheme|class|type|value|axiom|test_case|end|with|in)\\b"
+					"match": "\\b(scheme|extend|class|case|of|type|value|axiom|theory|object|test_case|end|with|in|pre|post|as|variable|channel|let|if|then|else)\\b"
 				},
 				{
 					"name": "keyword.operator.bounded.rsl",
-					"match": "\\~isin\\b|-inflist\\b|-list\\b|\\b(inter|exists|union|all|always|is|isin)\\b"
+					"match": "\\~isin\\b|\\b(inter|exists|union|all|always|is|isin)\\b"
+				},
+				{
+					"name": "support.type.rsl",
+					"match": "\\b(Unit|Bool|Nat|Int|Text|Char|Real)\\b"
+				},
+				{
+					"name": "support.type.rsl",
+					"match": "(?<=\\w)-(inf)?set\\b"
+				},
+				{
+					"name": "support.function.rsl",
+					"match": "\\b(elems|dom|hd|write|read)\\b"
+				},
+				{
+					"name": "support.constant.rsl",
+					"match": "\\b(out)\\b"
+				},
+				{
+					"name": "constant.language.rsl",
+					"match": "\\b(true|false|chaos)\\b"
 				},
 				{
 					"name": "keyword.operator.unbound.rsl",
@@ -40,15 +59,7 @@
 				},
 				{
 					"name": "keyword.operator.unbound.rsl",
-					"match": "\\+|-|/|\\*|>|<|===|==|="
-				},
-				{
-					"name": "support.type.rsl",
-					"match": "\\b(Int|Nat|Text|\\w+-set)\\b"
-				},
-				{
-					"name": "constant.language.rsl",
-					"match": "\\b(true|false|chaos)\\b"
+					"match": "\\+|-|/|\\*|>|<|===|==|=|\\^"
 				}
 			]
 		},
