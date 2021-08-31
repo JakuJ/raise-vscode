@@ -1,0 +1,25 @@
+{
+    "name": "raise",
+    "displayName": "RAISE",
+    "description": "Support for the RAISE Specification Language",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.59.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "rsl",
+            "aliases": ["RSL", "rsl"],
+            "extensions": [".rsl"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "rsl",
+            "scopeName": "source.rsl",
+            "path": "./syntaxes/rsl.tmLanguage.json"
+        }]
+    }
+}

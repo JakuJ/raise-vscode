@@ -1,0 +1,37 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "RSL",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.rsl",
+				"match": "\\b(scheme|class|type|value|axiom|end)\\b"
+			},
+			{
+				"name": "keyword.operator.rsl",
+				"match": "\\b(exists|all)\\b"
+			}
+		]
+		},
+		"strings": {
+			"name": "string.quoted.double.rsl",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.rsl",
+					"match": "\\\\."
+				}
+			]
+		}
+	},
+	"scopeName": "source.rsl"
+}
