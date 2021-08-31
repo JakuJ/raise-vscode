@@ -1,0 +1,23 @@
+{
+    "Scheme": {
+        "prefix": "scheme",
+        "description": "A scheme declaration.",
+        "body": [
+            "scheme $TM_FILENAME_BASE =",
+            "\tclass",
+            "\t\t$0",
+            "\tend"
+        ]
+    },
+    "Class": {
+        "prefix": [
+            "class"
+        ],
+        "body": [
+            "class",
+            "\t$0",
+            "end"
+        ],
+        "description": "A class declaration."
+    }
+}

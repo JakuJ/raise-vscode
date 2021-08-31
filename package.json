@@ -20,6 +20,12 @@
             "language": "rsl",
             "scopeName": "source.rsl",
             "path": "./syntaxes/rsl.tmLanguage.json"
-        }]
+        }],
+        "snippets": [
+            {
+              "language": "rsl",
+              "path": "./snippets/rsl.json"
+            }
+          ]
     }
 }
