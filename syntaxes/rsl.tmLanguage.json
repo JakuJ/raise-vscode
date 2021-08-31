@@ -16,8 +16,16 @@
 				"match": "\\b(scheme|class|type|value|axiom|end)\\b"
 			},
 			{
-				"name": "keyword.operator.rsl",
-				"match": "\\b(exists|all)\\b"
+				"name": "keyword.operator.bounded.rsl",
+				"match": "\\~isin\\b|-inflist\\b|-list\\b|\\b(inter|exists|union|all|always|is|isin)\\b"
+			},
+			{
+				"name": "keyword.operator.unbound.rsl",
+				"match": "<<=|>>=|><|(\\|\\|)|(\\|=\\|)|\\*\\*|/\\\\|>=|<=|-m->|-\\~->|->|#|:-|\\+\\+|(\\|\\^\\|)|\/|<<|>>|<\\.|-\\~m->|-\\\\|~=|\\+>|!!|=>|<->|\\.>"
+			},
+			{
+				"name": "support.type.rsl",
+				"match": "\\b(Int|Nat)\\b"
 			}
 		]
 		},
