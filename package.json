@@ -2,9 +2,10 @@
     "name": "raise",
     "displayName": "RAISE",
     "description": "Support for the RAISE Specification Language",
-    "publisher": "Jakub Janaszkiewicz",
+    "publisher": "janaszkiewicz-dtu",
     "repository": "https://github.com/JakuJ/raise-vscode",
     "version": "0.0.1",
+    "icon": "icon.png",
     "main": "./out/extension.js",
     "activationEvents": [
         "onLanguage:rsl"
@@ -16,21 +17,32 @@
         "Programming Languages"
     ],
     "contributes": {
-        "languages": [{
-            "id": "rsl",
-            "aliases": ["RSL", "rsl"],
-            "extensions": [".rsl"],
-            "configuration": "./language-configuration.json"
-        }],
-        "grammars": [{
-            "language": "rsl",
-            "scopeName": "source.rsl",
-            "path": "./syntaxes/rsl.tmLanguage.json"
-        }],
-        "snippets": [{
-            "language": "rsl",
-            "path": "./snippets/rsl.json"
-        }],
+        "languages": [
+            {
+                "id": "rsl",
+                "aliases": [
+                    "RSL",
+                    "rsl"
+                ],
+                "extensions": [
+                    ".rsl"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "rsl",
+                "scopeName": "source.rsl",
+                "path": "./syntaxes/rsl.tmLanguage.json"
+            }
+        ],
+        "snippets": [
+            {
+                "language": "rsl",
+                "path": "./snippets/rsl.json"
+            }
+        ],
         "commands": [
             {
                 "command": "raise.typeCheck",
@@ -47,17 +59,20 @@
         ]
     },
     "scripts": {
-		"vscode:prepublish": "npm run compile",
-		"compile": "tsc -p ./",
-		"lint": "eslint . --ext .ts,.tsx",
-		"watch": "tsc -watch -p ./"
-	},
-	"devDependencies": {
-		"@types/node": "^12.12.0",
-		"@types/vscode": "^1.34.0",
-		"@typescript-eslint/eslint-plugin": "^4.16.0",
-		"@typescript-eslint/parser": "^4.16.0",
-		"eslint": "^7.21.0",
-		"typescript": "^4.2.2"
-	}
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "lint": "eslint . --ext .ts,.tsx",
+        "watch": "tsc -watch -p ./"
+    },
+    "devDependencies": {
+        "@types/node": "^12.12.0",
+        "@types/vscode": "^1.34.0",
+        "@typescript-eslint/eslint-plugin": "^4.16.0",
+        "@typescript-eslint/parser": "^4.16.0",
+        "eslint": "^7.21.0",
+        "typescript": "^4.2.2"
+    },
+    "dependencies": {
+        "vscode-languageclient": "^7.0.0"
+    }
 }
