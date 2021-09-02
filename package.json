@@ -4,9 +4,9 @@
     "description": "Support for the RAISE Specification Language",
     "publisher": "janaszkiewicz-dtu",
     "repository": "https://github.com/JakuJ/raise-vscode",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "icon": "icon.png",
-    "main": "./out/extension.js",
+    "main": "./out/main.js",
     "activationEvents": [
         "onLanguage:rsl"
     ],
@@ -59,7 +59,9 @@
         ]
     },
     "scripts": {
-        "vscode:prepublish": "npm run compile",
+        "vscode:prepublish": "npm run esbuild-base -- --minify",
+        "esbuild-base": "esbuild ./src/extension.ts --bundle --outfile=out/main.js --external:vscode --format=cjs --platform=node",
+        "esbuild": "npm run esbuild-base -- --sourcemap",
         "compile": "tsc -p ./",
         "lint": "eslint . --ext .ts,.tsx",
         "watch": "tsc -watch -p ./"
@@ -69,6 +71,7 @@
         "@types/vscode": "^1.34.0",
         "@typescript-eslint/eslint-plugin": "^4.16.0",
         "@typescript-eslint/parser": "^4.16.0",
+        "esbuild": "^0.12.25",
         "eslint": "^7.21.0",
         "typescript": "^4.2.2"
     },
