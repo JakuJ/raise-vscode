@@ -6,3 +6,4 @@ src/
 node_modules/
 out/
 !out/extension.js
+test/

@@ -1,0 +1,48 @@
+-- OPERATORS
+>< : -> || |=| ** /\ >= <= inter -m-> -~-> # :- isin ++ |^| \/ exists union << <<= >> >>= <. -~m->
+~isin -\ ~= +> all !! always => is <-> .> + - / * = == === ^ |- {= [=
+
+-- ALL KEYWORDS
+abs any as axiom card case channel chaos class do dom elems else elsif
+end extend false for hd hide if in inds initialise int len let local object
+of out post pre read real rng scheme skip stop swap test_case then tl true
+type until use value variable while with write theory devt_relation wait
+
+-- module
+scheme object theory devt_relation
+
+-- decl
+object type value variable channel axiom test_case
+
+-- class_expr
+class end extend with hide use in with for
+
+-- type_expr
+Int Nat Text Bool Unit Real Char Time
+
+-- type_expr: modifiers
+Person-set db-infset Type12-list some_type1_23a-inflist
+
+-- type_expr: modifiers on their own have no color
+-set -infset -list -inflist
+
+-- access_mode
+read write in out any
+
+--value_expr
+chaos skip stop swap initialise
+
+-- structured_expr
+local in end let end if then elsif else case of while do until for
+
+-- value_literal
+true false
+
+-- conditions
+pre post as
+
+-- prefix_op
+abs int real card len inds elems hd tl dom rng wait
+
+/* multiline
+comments can contain keywords such as axiom and scheme */
