@@ -5,4 +5,4 @@ tsconfig.json
 src/
 node_modules/
 out/
-!out/main.js
+!out/extension.js
