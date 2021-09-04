@@ -4,12 +4,13 @@ import {
 	LanguageClientOptions,
 	ServerOptions,
 } from 'vscode-languageclient/node';
+import { getConfig } from './common';
 
 let client: LanguageClient;
 
 export function startClient(context: vscode.ExtensionContext) {
     const serverOptions: ServerOptions = { 
-        command: "rsl-language-server",
+        command: getConfig("pathToLanguageServer"),
         args: [],
         options: {}
 	};

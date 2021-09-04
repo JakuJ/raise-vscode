@@ -27,12 +27,9 @@ This extension requires the `rsltc` and `sml` binaries to be globally available 
 
 If you cannot run `rsltc` or `sml` on your OS natively, you might want to use the [Docker utility script](https://github.com/JakuJ/raise-docker-util).
 
-Install the `raise.sh` utility in your `PATH` and then introduce aliases to the required programs, like so:
+Install the `raise.sh` utility in your `PATH` and then change the configuration, for instance:
 
-```shell
-# put this in your ~/.bashrc
-alias sml='raise.sh sml'
-```
+![example configuration](images/config.png)
 ### Language server
 
-The [rsl-language-server](https://github.com/JakuJ/rsl-language-server) binary should be in your `PATH` for the language server integration to work.
+Install the [rsl-language-server](https://github.com/JakuJ/rsl-language-server) and add it to your `PATH` or define the path to it in the configuration.

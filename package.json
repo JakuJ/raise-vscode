@@ -4,9 +4,9 @@
     "description": "Support for the RAISE Specification Language",
     "publisher": "janaszkiewicz-dtu",
     "repository": "https://github.com/JakuJ/raise-vscode",
-    "version": "0.1.4",
+    "version": "0.1.5",
     "icon": "icon.png",
-    "main": "./out/main.js",
+    "main": "./out/extension.js",
     "activationEvents": [
         "onLanguage:rsl"
     ],
@@ -56,11 +56,36 @@
                 "command": "raise.runSML",
                 "title": "RAISE: Run SML"
             }
-        ]
+        ],
+        "configuration": {
+            "title": "RAISE",
+            "properties": {
+              "raise.typecheckCommand": {
+                "type": "string",
+                "default": "rsltc",
+                "description": "Specifies which command to call to typecheck a file."
+              },
+              "raise.compileCommand": {
+                "type": "string",
+                "default": "rsltc -m",
+                "description": "Specifies which command to call to compile a RSL file to SML."
+              },
+              "raise.runCommand": {
+                "type": "string",
+                "default": "sml",
+                "description": "Specifies which command to call to run an SML file."
+              },
+              "raise.pathToLanguageServer": {
+                  "type": "string",
+                  "default": "rsl-language-server",
+                  "description": "Path to the RSL Language server binary."
+              }
+            }
+          }
     },
     "scripts": {
         "vscode:prepublish": "npm run esbuild-base -- --minify",
-        "esbuild-base": "esbuild ./src/extension.ts --bundle --outfile=out/main.js --external:vscode --format=cjs --platform=node",
+        "esbuild-base": "esbuild ./src/extension.ts --bundle --outfile=out/extension.js --external:vscode --format=cjs --platform=node",
         "esbuild": "npm run esbuild-base -- --sourcemap",
         "compile": "tsc -p ./",
         "lint": "eslint . --ext .ts,.tsx",

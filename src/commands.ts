@@ -1,14 +1,15 @@
 import * as vscode from 'vscode';
 import { exec } from 'child_process';
 import { existsSync } from 'fs';
+import { getConfig } from './common';
 
 const output = vscode.window.createOutputChannel("RAISE");
 
 function execCommand(command: string, filepath: string) {
     output.clear();
     output.show(true);
-    exec(`${command} '${filepath}'`, (error, stdout, stderr) => {
-        output.append(stdout);
+    exec(`${command} '${filepath}'`).stdout?.on('data', (data: string) => {
+        output.append(data); 
     });
 }
 
@@ -23,11 +24,11 @@ function runWrapper(command: string) {
 }
 
 function typeCheck() {
-    runWrapper('rsltc');
+    runWrapper(getConfig("typecheckCommand"));
 };
 
 function compileToSML() {
-    runWrapper('rsltc -m');
+    runWrapper(getConfig("compileCommand"));
 }
 
 function runSML() {
@@ -42,7 +43,7 @@ function runSML() {
             return;
         }
 
-        execCommand('sml', filepath);
+        execCommand(getConfig("runCommand"), filepath);
     } else {
         console.warn("No file is currently opened");
     }
