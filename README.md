@@ -7,26 +7,32 @@ This project aims to bring basic support for the RAISE Specification Language to
 ## Features
 
 - Syntax highlighing
-- Language server support 
+- [Language server support](https://github.com/JakuJ/rsl-language-server)
 - Auto-indentation
 - Snippets for `scheme` and `class` keywords
 - Commands:
   - `Typecheck`
   - `Compile to SML`
   - `Run SML`
-- Code lenses for the above commands
 
 ## Requirements
 
-Install this extension from the Marketplace and make sure you also have the following dependencies:
+Install this extension from the Extension menu in VS Code and make sure you also have the following dependencies:
 
 ### RSL Tools
 
-This extension uses the Dockerized version of the `rsltc` and `sml` utilities.
-Install the `raise.sh` utility in your `PATH` [[link](https://github.com/JakuJ/raise-docker-util)]
+This extension requires the `rsltc` and `sml` binaries to be globally available (put them in your `PATH`).
 
-Support for locally installed tools (no Docker) coming soon.
+#### Optional: Docker utility script
 
+If you cannot run `rsltc` or `sml` on your OS natively, you might want to use the [Docker utility script](https://github.com/JakuJ/raise-docker-util).
+
+Install the `raise.sh` utility in your `PATH` and then introduce aliases to the required programs, like so:
+
+```shell
+# put this in your ~/.bashrc
+alias sml='raise.sh sml'
+```
 ### Language server
 
 The [rsl-language-server](https://github.com/JakuJ/rsl-language-server) binary should be in your `PATH` for the language server integration to work.

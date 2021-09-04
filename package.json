@@ -4,7 +4,7 @@
     "description": "Support for the RAISE Specification Language",
     "publisher": "janaszkiewicz-dtu",
     "repository": "https://github.com/JakuJ/raise-vscode",
-    "version": "0.1.3",
+    "version": "0.1.4",
     "icon": "icon.png",
     "main": "./out/main.js",
     "activationEvents": [

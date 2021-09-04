@@ -7,7 +7,7 @@ const output = vscode.window.createOutputChannel("RAISE");
 function execCommand(command: string, filepath: string) {
     output.clear();
     output.show(true);
-    exec(`raise.sh ${command} '${filepath}'`, (error, stdout, stderr) => {
+    exec(`${command} '${filepath}'`, (error, stdout, stderr) => {
         output.append(stdout);
     });
 }

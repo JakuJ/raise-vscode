@@ -1,5 +1,4 @@
 import * as vscode from 'vscode';
-import { workspace, ExtensionContext } from 'vscode';
 import {
 	LanguageClient,
 	LanguageClientOptions,
