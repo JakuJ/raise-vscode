@@ -19,7 +19,6 @@
         ["{", "}"],
         ["[", "]"],
         ["(", ")"],
-        ["<", ">"],
         ["\"", "\""],
         ["'", "'"]
     ],
@@ -34,7 +33,7 @@
         ["'", "'"]
     ],
     "indentationRules": {
-        "increaseIndentPattern": "(=|class|value|axiom|test_case|variable|channel|type)\\s*$",
+        "increaseIndentPattern": "(=|object|type|value|variable|channel|axiom|test_case|class)\\s*$",
         "decreaseIndentPattern": "$a"
     }
 }

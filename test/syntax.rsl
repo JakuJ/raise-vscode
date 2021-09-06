@@ -21,7 +21,7 @@ class end extend with hide use in with for
 Int Nat Text Bool Unit Real Char Time
 
 -- type_expr: modifiers
-Person-set db-infset Type12-list some_type1_23a-inflist
+Person-set db-infset Type12-list some_type1_23a-inflist Int-set Real-inflist
 
 -- type_expr: modifiers on their own have no color
 -set -infset -list -inflist

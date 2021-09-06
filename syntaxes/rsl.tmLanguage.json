@@ -35,11 +35,11 @@
 				},
 				{
 					"name": "support.type.rsl",
-					"match": "\\b(Unit|Bool|Nat|Int|Text|Char|Real|Time)\\b"
+					"match": "[\\w\\d_]+-(inf)?(set|list)\\b"
 				},
 				{
 					"name": "support.type.rsl",
-					"match": "[\\w\\d_]+-(inf)?(set|list)\\b"
+					"match": "\\b(Unit|Bool|Nat|Int|Text|Char|Real|Time)\\b"
 				},
 				{
 					"name": "support.function.rsl",
