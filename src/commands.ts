@@ -24,11 +24,11 @@ function runWrapper(command: string) {
 }
 
 function typeCheck() {
-    runWrapper(getConfig("typecheckCommand"));
+    runWrapper(getConfig("commands.typecheck"));
 };
 
 function compileToSML() {
-    runWrapper(getConfig("compileCommand"));
+    runWrapper(getConfig("commands.compile"));
 }
 
 function runSML() {
@@ -43,7 +43,7 @@ function runSML() {
             return;
         }
 
-        execCommand(getConfig("runCommand"), filepath);
+        execCommand(getConfig("commands.execute"), filepath);
     } else {
         console.warn("No file is currently opened");
     }

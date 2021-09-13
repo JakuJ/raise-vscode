@@ -10,8 +10,8 @@ let client: LanguageClient;
 
 export function startClient(context: vscode.ExtensionContext) {
 	const serverOptions: ServerOptions = { 
-        command: getConfig("pathToLanguageServer"),
-        args: getConfig("compilerDiagnostics") ? ["--compile"] : [],
+        command: getConfig("languageServer.path"),
+        args: getConfig("languageServer.compilerDiagnostics") ? ["--compile"] : [],
         options: {}
 	};
 
