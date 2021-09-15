@@ -1,6 +1,6 @@
 import { execSync } from 'child_process';
 import * as vscode from 'vscode';
-import { getConfig } from './common';
+import { getConfig, reportFailure } from './common';
 
 export function registerFormatter() {
   if (getConfig("format.enable")) {
@@ -9,8 +9,15 @@ export function registerFormatter() {
         const filepath = document.fileName;
         const command = getConfig("commands.format");
         
-        const buffer = execSync(`${command} '${filepath}'`);
+        let buffer: Buffer;
         
+        try {
+          buffer = execSync(`${command} '${filepath}'`);
+        } catch {
+          reportFailure(command);
+          return [];
+        }
+
         const firstLine = document.lineAt(0);
         const lastLine = document.lineAt(document.lineCount - 1);
         const textRange = new vscode.Range(firstLine.range.start, lastLine.range.end);

@@ -1,15 +1,20 @@
 import * as vscode from 'vscode';
 import { exec } from 'child_process';
 import { existsSync } from 'fs';
-import { getConfig } from './common';
+import { getConfig, reportFailure } from './common';
 
 const output = vscode.window.createOutputChannel("RAISE");
 
 function execCommand(command: string, filepath: string) {
     output.clear();
     output.show(true);
-    exec(`${command} '${filepath}'`).stdout?.on('data', (data: string) => {
-        output.append(data); 
+
+    exec(`${command} '${filepath}'`, (error, stdout, _) => {
+        if (error !== null) {
+            reportFailure(command);
+        } else {
+            output.append(stdout); 
+        }
     });
 }
 
