@@ -9,12 +9,14 @@ function execCommand(command: string, filepath: string) {
     output.clear();
     output.show(true);
 
-    exec(`${command} '${filepath}'`, (error, stdout, _) => {
-        if (error !== null) {
+    const child = exec(`${command} '${filepath}'`, (error, _stdout, _stderr) => {
+        if (error?.code == 125) {
             reportFailure(command);
-        } else {
-            output.append(stdout); 
         }
+    });
+
+    child.stdout?.on('data', (data: string) => {
+        output.append(data); 
     });
 }
 
