@@ -1,7 +1,8 @@
 import * as vscode from 'vscode';
 import { exec } from 'child_process';
 import { existsSync } from 'fs';
-import { getConfig, reportFailure } from './common';
+import { getConfig, reportFailure, delimiter } from './common';
+import { dirname, basename } from 'path';
 
 const output = vscode.window.createOutputChannel("RAISE");
 
@@ -9,7 +10,12 @@ function execCommand(command: string, filepath: string) {
     output.clear();
     output.show(true);
 
-    const child = exec(`${command} '${filepath}'`, (error, _stdout, _stderr) => {
+    const dir = dirname(filepath);
+    const file = basename(filepath);
+
+    const child = exec(`${command} ${delimiter}${file}${delimiter}`,
+         { cwd: dir },
+         (error, _stdout, _stderr) => {
         if (error?.code == 125) {
             reportFailure(command);
         }

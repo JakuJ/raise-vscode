@@ -15,3 +15,5 @@ export function reportFailure(command: string) {
     
     vscode.window.showErrorMessage(msg);
 }
+
+export const delimiter: string = process.platform == 'win32' ? '"' : '\'';
