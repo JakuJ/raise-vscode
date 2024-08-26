@@ -30,38 +30,33 @@ function execCommand(command: string, filepath: string) : Promise<string> {
     });
 }
 
-async function runWrapper(run: (filepath: string) => Promise<string | void>) {
+function runWrapper(run: (filepath: string) => Promise<string | void>) {
     const editor = vscode.window.activeTextEditor;
     if (editor) {
-        return run(editor.document.fileName)
+        const filepath = editor.document.fileName;
+        run(filepath)
     } else {
         console.warn("No file is currently opened");
     }
 }
 
-function typeCheck() {
-    return runWrapper((filepath: string) => {
-        return execCommand(getConfig("commands.typecheck"), filepath)
-    });
+async function typeCheck(filepath: string) {
+    return execCommand(getConfig("commands.typecheck"), filepath)
 }
 
-function compileToSML() {
-    return runWrapper ((filepath: string) => {
-        return execCommand(getConfig("commands.compile"), filepath)
-    });
+async function compileToSML(filepath: string) {
+    return execCommand(getConfig("commands.compile"), filepath)
 }
 
-function runSML() {
-    return runWrapper(async (filepath: string) => {
-        filepath = filepath.slice(0, -4) + '.sml'; // replace ".rsl" extension with sml
+async function runSML(filepath: string) {
+    filepath = filepath.slice(0, -4) + '.sml'; // replace ".rsl" extension with sml
 
-        if (!existsSync(filepath)) {
-            console.warn("Could not find an SML file with the same name as the currently opened RSL file");
-            return;
-        }
+    if (!existsSync(filepath)) {
+        console.warn("Could not find an SML file with the same name as the currently opened RSL file");
+        return;
+    }
 
-        return execCommand(getConfig("commands.execute"), filepath);
-    });
+    return execCommand(getConfig("commands.execute"), filepath);
 }
 
 function extractResults(out: string) {
@@ -82,29 +77,26 @@ function extractResults(out: string) {
     return results.join("\n");
 }
 
-async function saveResults() {
-    return runWrapper(async (filepath: string) => {
-        filepath = filepath.slice(0, -4) + '.sml.results';
+async function saveResults(filepath: string) {
+    try {
+        await compileToSML(filepath);
+        const out = await runSML(filepath);
 
-        try {
-            await compileToSML();
-            const out = await runSML();
-
-            if (out) { 
-                await fs.writeFile(filepath, extractResults(out));
-            } else {
-                console.warn("No results to save.");
-            }
-        } catch (error) {
-            console.error("Failed to save results:", error);
-            vscode.window.showErrorMessage("Failed to save results to file");
+        if (out) { 
+            filepath = filepath.slice(0, -4) + '.sml.results';
+            await fs.writeFile(filepath, extractResults(out));
+        } else {
+            console.warn("No results to save");
         }
-    });
+    } catch (error) {
+        console.error("Failed to save results:", error);
+        vscode.window.showErrorMessage("Failed to save results to file");
+    }
 }
 
 export function registerCommands(context: vscode.ExtensionContext) {
-    context.subscriptions.push(vscode.commands.registerCommand('raise.typeCheck', typeCheck));
-    context.subscriptions.push(vscode.commands.registerCommand('raise.compileToSML', compileToSML));
-    context.subscriptions.push(vscode.commands.registerCommand('raise.runSML', runSML));
-    context.subscriptions.push(vscode.commands.registerCommand('raise.saveResults', saveResults));
+    context.subscriptions.push(vscode.commands.registerCommand('raise.typeCheck', () => runWrapper(typeCheck)));
+    context.subscriptions.push(vscode.commands.registerCommand('raise.compileToSML', () => runWrapper(compileToSML)));
+    context.subscriptions.push(vscode.commands.registerCommand('raise.runSML', () => runWrapper(runSML)));
+    context.subscriptions.push(vscode.commands.registerCommand('raise.saveResults', () => runWrapper(saveResults)));
 }
