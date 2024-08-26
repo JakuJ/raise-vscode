@@ -57,6 +57,10 @@
             {
                 "command": "raise.runSML",
                 "title": "RAISE: Run SML"
+            },
+            {
+                "command": "raise.saveResults",
+                "title": "RAISE: Save Results"
             }
         ],
         "configuration": {
@@ -74,8 +78,8 @@
               },
               "raise.commands.execute": {
                 "type": "string",
-                "default": "sml",
-                "description": "Specifies which command to call to execute an SML file."
+                "default": "sml <",
+                "description": "Specifies which command to call to execute an SML file. Make sure this command terminates."
               },
               "raise.commands.format": {
                 "type": "string",
