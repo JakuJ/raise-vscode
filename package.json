@@ -5,7 +5,7 @@
     "publisher": "janaszkiewicz-dtu",
     "repository": "https://github.com/JakuJ/raise-vscode",
     "license": "MIT",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "icon": "icon.png",
     "main": "./out/extension.js",
     "activationEvents": [
