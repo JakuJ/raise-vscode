@@ -68,7 +68,7 @@ function extractResults(out: string) {
     let coverageMessageString = /^Unexecuted expressions in |Complete expression coverage of /;
     let results = out.substring(pos + 1).split("\n");
 
-    results = results.filter((line) => 
+    results = results.filter(line => 
         line != "val it = () : unit" && 
         line != "- " && 
         !coverageMessageString.test(line)

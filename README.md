@@ -7,7 +7,7 @@ VS Code extension introducing support for the RAISE Specification Language. For 
 ## Features
 
 - Syntax highlighing
-- Commands for type checking, compilation to, and execution of generated SML
+- Commands for type checking, compilation to, and execution of generated SML with extraction of test results
 - [Language server](https://github.com/JakuJ/rsl-language-server) integration for on-save diagnostics
 - Formatting via the `rsltc` pretty-printer
 - Auto-indentation
@@ -37,7 +37,7 @@ The following configuration options are grouped under the "RAISE" category:
 |-|-|-|
 | raise.commands.typecheck | rsltc | Command used to run type checking |
 | raise.commands.compile | rsltc -m | Command used to generate SML |
-| raise.commands.execute | sml | Command used to run SML |
+| raise.commands.execute | sml < | Command used to run SML |
 | raise.commands.format | rsltc -pl 80 | Command used to pretty-print |
 | raise.format.enable | true | Whether to enable code formatting |
 | raise.languageServer.path | rsl-language-server | Path to the RSL LS executable |
