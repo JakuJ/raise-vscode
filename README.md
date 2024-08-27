@@ -43,7 +43,7 @@ The following configuration options are grouped under the "RAISE" category:
 | raise.languageServer.path                | rsl-language-server | Path to the RSL LS executable              |
 | raise.languageServer.compilerDiagnostics | true                | Whether to report SML compiler diagnostics |
 
-> [!WARN]
+> [!WARNING]
 > If format-on-save (`editor.formatOnSave` setting) is enabled, the RSL formatter might overwrite files with old content, effectively preventing any changes to the document. If this is the case for you, either disable format-on-save or uncheck `raise.format.enable` to remove RSL formatting altogether.
 
 ### macOS
