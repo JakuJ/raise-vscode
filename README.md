@@ -44,7 +44,10 @@ The following configuration options are grouped under the "RAISE" category:
 | raise.languageServer.compilerDiagnostics | true                | Whether to report SML compiler diagnostics |
 
 > [!WARNING]
-> If format-on-save (`editor.formatOnSave` setting) is enabled, the RSL formatter might overwrite files with old content, effectively preventing any changes to the document. If this is the case for you, either disable format-on-save or uncheck `raise.format.enable` to remove RSL formatting altogether.
+> - If format-on-save (`editor.formatOnSave` setting) is enabled, the RSL formatter might overwrite files with old content, effectively preventing any changes to the document. If this is the case for you, either disable format-on-save or uncheck `raise.format.enable` to remove RSL formatting altogether.
+> - If the Save Results command does not create a results file, ensure the `raise.commands.execute` command terminates by itself. That is, you don’t need to send EOF to the interactive SML session.
+> - The Save Results command does not check if the tests ran successfully or if there are any. If no tests are run, the resulting file will be empty. If there are errors they should be included in the file.
+> - To make the language server use a new configuration you must restart VSCode.
 
 ### macOS
 
