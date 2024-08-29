@@ -27,7 +27,7 @@ If you cannot run `rsltc` or `sml` on your OS natively (as is the case with macO
 
 ### Language server
 
-Install the [rsl-language-server](https://github.com/JakuJ/rsl-language-server) and add it to your `PATH` or define the path to it in the configuration. The language server requires `rsltc` and `rsltc -m` to be available on your system either by wrapping the Docker script or without using Docker.
+Install the [rsl-language-server](https://github.com/JakuJ/rsl-language-server) and add it to your `PATH` or define the path to it in the configuration. The language server requires `rsltc` and `rsltc -m` to be available on your system either by wrapping raise.sh in a bash script or without using Docker.
 
 ## Configuration
 
