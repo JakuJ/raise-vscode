@@ -62,6 +62,9 @@ To achieve full functionality of the extension on macOS, the following commands 
 }
 ```
 
+### Installing Version 0.3.0
+The VS Code marketplace currently only offers version 0.2.0, which does not include the save results command. To install version 0.3.0, you'll need to follow the installation steps provided in this [Release]( https://github.com/stinem1/raise-vscode/releases/tag/v0.3.0).
+
 # Development
 
 ```shell
