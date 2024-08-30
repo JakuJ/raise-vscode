@@ -62,20 +62,8 @@ To achieve full functionality of the extension on macOS, the following commands 
 }
 ```
 
-### Windows
-
-To ensure the extension functions fully on Windows when using Docker, you’ll need to adjust the following commands in your configuration. Using [raise.ps1](https://github.com/JakuJ/raise-docker-util) is one way to do it:
-
-```json
-{
-  "raise.commands.typecheck": "powershell raise.ps1 rsltc",
-  "raise.commands.compile": "powershell raise.ps1 rsltc -m",
-  "raise.commands.execute": "powershell raise.ps1 sml",
-  "raise.commands.format": "powershell raise.ps1 rsltc -pl 80",
-}
-```
-
-If you are using a version >=0.3.0 of this extension and have `rsltc`, `rsltc -m`, `rsltc -pl 80` working without Docker only `raise.commands.execute` needs to be changed.
+### Installing Version 0.3.0
+The VS Code marketplace currently only offers version 0.2.0, which does not include the save results command. To install version 0.3.0, you'll need to follow the installation steps provided in this [Release]( https://github.com/stinem1/raise-vscode/releases/tag/v0.3.0).
 
 # Development
 
